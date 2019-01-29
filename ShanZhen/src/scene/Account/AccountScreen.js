@@ -25,7 +25,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class AccountScene extends Component<Props> {
+export default class AccountScreen extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {};
@@ -58,21 +58,21 @@ export default class AccountScene extends Component<Props> {
             <Text style={styles.hint2}>加入会员</Text>
           </View>
           <View style={styles.tips}>
-            <View style={styles.tip1}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 30, height: 30 }}
               />
               <Text style={styles.instructions}>免费体检</Text>
             </View>
-            <View style={styles.tip2}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 30, height: 30 }}
               />
               <Text style={styles.instructions}>会员专享价</Text>
             </View>
-            <View style={styles.tip3}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 30, height: 30 }}
@@ -153,22 +153,10 @@ const styles = StyleSheet.create({
     height: 120,
     textAlign: "center"
   },
-  tip1: {
+  tip: {
     justifyContent: "center",
     alignItems: "center",
-    width: 110
-  },
-  tip2: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
-    width: 110
-  },
-  tip3: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
-    width: 110
+    flex: 1
   },
   instructions: {
     textAlign: "center",

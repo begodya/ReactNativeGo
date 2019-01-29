@@ -14,15 +14,26 @@ import {
   createAppContainer
 } from "react-navigation";
 // import Ionicons from 'react-native-vector-icons/Ionicons'
-import HomeScene from "./Home/HomeScene";
-import AskScene from "./Ask/AskScene";
-import GoodsScene from "./Goods/GoodsScene";
-import AccountScene from "./Account/AccountScene";
+import HomeScreen from "./Home/HomeScreen";
+import AskScreen from "./Ask/AskScreen";
+import GoodsScreen from "./Goods/GoodsScreen";
+import AccountScreen from "./Account/AccountScreen";
+import GoodsDetailScreen from "./Goods/GoodsDetailScreen";
 
-export const AppTabNavigator = createBottomTabNavigator(
+// const HomeStack = createStackNavigator({
+//   Home: { screen: HomeScreen },
+//   GoodsDetail: { screen: GoodsDetailScreen }
+// });
+
+// const GoodsStack = createStackNavigator({
+//   Goods: { screen: GoodsScreen },
+//   GoodsDetail: { screen: GoodsDetailScreen }
+// });
+
+const AppTabNavigator = createBottomTabNavigator(
   {
     Home: {
-      screen: HomeScene,
+      screen: HomeScreen,
       navigationOptions: {
         tabBarLabel: "善诊",
         tabBarIcon: ({ tintColor, focused }) => (
@@ -34,7 +45,7 @@ export const AppTabNavigator = createBottomTabNavigator(
       }
     },
     Goods: {
-      screen: GoodsScene,
+      screen: GoodsScreen,
       navigationOptions: {
         tabBarLabel: "体检",
         tabBarIcon: ({ tintColor, focused }) => (
@@ -46,7 +57,7 @@ export const AppTabNavigator = createBottomTabNavigator(
       }
     },
     Ask: {
-      screen: AskScene,
+      screen: AskScreen,
       navigationOptions: {
         tabBarLabel: "问诊",
         tabBarIcon: ({ tintColor, focused }) => (
@@ -58,7 +69,7 @@ export const AppTabNavigator = createBottomTabNavigator(
       }
     },
     Account: {
-      screen: AccountScene,
+      screen: AccountScreen,
       navigationOptions: {
         tabBarLabel: "我的",
         tabBarIcon: ({ tintColor, focused }) => (
@@ -82,20 +93,5 @@ export const AppTabNavigator = createBottomTabNavigator(
     }
   }
 );
-
-// export const AppStackNavigator = createStackNavigator({
-//   Home: {
-//     screen: HomeScene
-//   },
-//   Goods: {
-//     screen: GoodsScene
-//   },
-//   Ask: {
-//     screen: AskScene
-//   },
-//   Account: {
-//     screen: AccountScene
-//   }
-// })
 
 export default createAppContainer(AppTabNavigator);

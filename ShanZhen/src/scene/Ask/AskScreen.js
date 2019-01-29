@@ -26,7 +26,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class AskScene extends Component<Props> {
+export default class AskScreen extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {};
@@ -42,21 +42,21 @@ export default class AskScene extends Component<Props> {
           </Text>
           <Text style={styles.hint}>有问题？快去找专业医生咨询吧</Text>
           <View style={styles.tips}>
-            <View style={styles.tip1}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 35, height: 35 }}
               />
               <Text style={styles.instructions}>体检报告异常解读</Text>
             </View>
-            <View style={styles.tip2}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 35, height: 35 }}
               />
               <Text style={styles.instructions}>身体不适咨询医生</Text>
             </View>
-            <View style={styles.tip3}>
+            <View style={styles.tip}>
               <Image
                 source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
                 style={{ width: 35, height: 35 }}
@@ -112,34 +112,15 @@ const styles = StyleSheet.create({
     color: "#999999",
     textAlign: "center"
   },
-  tip1: {
+  tip: {
     justifyContent: "center",
     alignItems: "center",
     height: 150,
-    width: 100,
     borderWidth: 1,
     borderColor: "#ECECEC",
-    borderRadius: 5
-  },
-  tip2: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 15,
-    height: 150,
-    width: 100,
-    borderWidth: 1,
-    borderColor: "#ECECEC",
-    borderRadius: 5
-  },
-  tip3: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 15,
-    height: 150,
-    width: 100,
-    borderWidth: 1,
-    borderColor: "#ECECEC",
-    borderRadius: 5
+    borderRadius: 5,
+    flex: 1,
+    margin: 5
   },
   ask: {
     backgroundColor: "#318FF5",

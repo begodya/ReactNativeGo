@@ -15,8 +15,10 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Button,
   FlatList
 } from "react-native";
+import { createStackNavigator } from "react-navigation";
 
 var Dimensions = require("Dimensions");
 var screenWidth = Dimensions.get("window").width;
@@ -28,11 +30,11 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class HomeScene extends Component<Props> {
+export default class HomeScreen extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {};
-    this.goodsList = [{ key: "1" }, { key: "2" }, { key: "3" }];
+    this.goodsList = [{ key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }];
   }
 
   render() {
@@ -47,29 +49,47 @@ export default class HomeScene extends Component<Props> {
             />
           </View>
           <View style={styles.tips}>
-            <View style={styles.tip1}>
-              <Image
-                source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-                style={{ width: 58, height: 58 }}
-              />
+            <View style={styles.tip}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("Goods")}
+              >
+                <Image
+                  source={{
+                    uri: "https://facebook.github.io/react/logo-og.png"
+                  }}
+                  style={{ width: 58, height: 58 }}
+                />
+              </TouchableOpacity>
               <Text style={styles.instructions}>体检</Text>
             </View>
-            <View style={styles.tip2}>
-              <Image
-                source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-                style={{ width: 58, height: 58 }}
-              />
+            <View style={styles.tip}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("Ask")}
+              >
+                <Image
+                  source={{
+                    uri: "https://facebook.github.io/react/logo-og.png"
+                  }}
+                  style={{ width: 58, height: 58 }}
+                />
+              </TouchableOpacity>
               <Text style={styles.instructions}>快速问诊</Text>
             </View>
-            <View style={styles.tip3}>
-              <Image
-                source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-                style={{ width: 58, height: 58 }}
-              />
+            <View style={styles.tip}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("Ask")}
+              >
+                <Image
+                  source={{
+                    uri: "https://facebook.github.io/react/logo-og.png"
+                  }}
+                  style={{ width: 58, height: 58 }}
+                />
+              </TouchableOpacity>
               <Text style={styles.instructions}>查报告</Text>
             </View>
           </View>
-          <View style={styles.vip}>
+          <View style={styles.vip} onPress={() => alert("This is a button!")}>
             <Image
               source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
               style={{ width: 16, height: 16 }}
@@ -83,16 +103,23 @@ export default class HomeScene extends Component<Props> {
           </View>
           <View style={styles.goods}>
             <Text style={styles.header}>体检套餐</Text>
-            <Text
+            <TouchableOpacity
               style={{
-                color: "#A1A8AE",
-                fontSize: 13,
-                margin: 25,
                 marginLeft: "auto"
               }}
+              onPress={() => this.props.navigation.navigate("Goods")}
             >
-              更多
-            </Text>
+              <Text
+                style={{
+                  color: "#A1A8AE",
+                  fontSize: 13,
+                  margin: 25,
+                  marginLeft: "auto"
+                }}
+              >
+                更多
+              </Text>
+            </TouchableOpacity>
           </View>
 
           <FlatList
@@ -128,6 +155,18 @@ export default class HomeScene extends Component<Props> {
   }
 }
 
+// const AppStackNavigator = createStackNavigator(
+//   {
+//     Home: HomeScene,
+//     Goods: GoodsScene,
+//     Ask: AskScene,
+//     Account: AccountScene
+//   },
+//   {
+//     initialRouteName: "Home"
+//   }
+// );
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -144,7 +183,6 @@ const styles = StyleSheet.create({
     margin: 20
   },
   banner: {
-    width: 335,
     height: 115,
     marginLeft: 20,
     marginRight: 20
@@ -155,28 +193,12 @@ const styles = StyleSheet.create({
     margin: 20,
     textAlign: "center"
   },
-  tip1: {
+  tip: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    height: 120,
-    width: 110
-  },
-  tip2: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
-    marginTop: 20,
-    height: 120,
-    width: 110
-  },
-  tip3: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
-    marginTop: 20,
-    height: 120,
-    width: 110
+    height: 120
   },
   instructions: {
     textAlign: "left",
