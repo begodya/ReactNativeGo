@@ -20,16 +20,6 @@ import GoodsScreen from "./Goods/GoodsScreen";
 import AccountScreen from "./Account/AccountScreen";
 import GoodsDetailScreen from "./Goods/GoodsDetailScreen";
 
-// const HomeStack = createStackNavigator({
-//   Home: { screen: HomeScreen },
-//   GoodsDetail: { screen: GoodsDetailScreen }
-// });
-
-// const GoodsStack = createStackNavigator({
-//   Goods: { screen: GoodsScreen },
-//   GoodsDetail: { screen: GoodsDetailScreen }
-// });
-
 const AppTabNavigator = createBottomTabNavigator(
   {
     Home: {
@@ -90,8 +80,22 @@ const AppTabNavigator = createBottomTabNavigator(
       inactiveTintColor: "#8F8F8F",
       activeTintColor: "#ED5601",
       labelStyle: { fontSize: 12 }
+    },
+    navigationOptions: {
+      tabBarVisible: false, // 隐藏底部导航栏
+      header: null //隐藏顶部导航栏
     }
   }
 );
 
-export default createAppContainer(AppTabNavigator);
+const AppStackNavigator = createStackNavigator({
+  Homes: { screen: AppTabNavigator },
+  GoodsDetail: {
+    screen: GoodsDetailScreen,
+    navigationOptions: {
+      title: "商品详情"
+    }
+  }
+});
+
+export default createAppContainer(AppStackNavigator);

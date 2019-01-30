@@ -45,7 +45,9 @@ export default class HomeScreen extends Component<Props> {
           <View style={styles.banner}>
             <Image
               source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-              style={{ width: 335, height: 115 }}
+              style={
+                { width: 335, height: 115 } // source={require("./image/btn_home_normal.png")}
+              }
             />
           </View>
           <View style={styles.tips}>
@@ -77,7 +79,19 @@ export default class HomeScreen extends Component<Props> {
             </View>
             <View style={styles.tip}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Ask")}
+                onPress={
+                  () => this.props.navigation.navigate("GoodsDetail")
+                  // const {navigation, theme, selectedTab} = this.props;
+                  // const resetAction = StackActions.reset({
+                  //   index: 0,
+                  //   actions: [
+                  //     NavigtionActions.navigate({
+                  //       routeName: "GoodsDetail",
+                  //     })
+                  //   ]
+                  // })
+                  // navigation.dispatch(resetAction)
+                }
               >
                 <Image
                   source={{
@@ -104,9 +118,7 @@ export default class HomeScreen extends Component<Props> {
           <View style={styles.goods}>
             <Text style={styles.header}>体检套餐</Text>
             <TouchableOpacity
-              style={{
-                marginLeft: "auto"
-              }}
+              style={{ marginLeft: "auto" }}
               onPress={() => this.props.navigation.navigate("Goods")}
             >
               <Text
@@ -125,28 +137,32 @@ export default class HomeScreen extends Component<Props> {
           <FlatList
             data={this.goodsList}
             renderItem={({ item }) => (
-              <View style={styles.item} v-for="item in goodsList" v-key="item">
-                <Image
-                  source={{
-                    uri: "https://facebook.github.io/react/logo-og.png"
-                  }}
-                  style={{ width: 130, height: 110 }}
-                />
-                <View style={styles.info}>
-                  <Text style={styles.title}>关爱父母孝心体检</Text>
-                  <Text style={styles.subtitle}>中老年基础体检筛查</Text>
-                  <View style={styles.price}>
-                    <Text style={styles.price1}>原价 235元</Text>
-                    <Image
-                      source={{
-                        uri: "https://facebook.github.io/react/logo-og.png"
-                      }}
-                      style={{ width: 18, height: 18 }}
-                    />
-                    <Text style={styles.price2}>会员价 0元</Text>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("GoodsDetail")}
+              >
+                <View style={styles.item}>
+                  <Image
+                    source={{
+                      uri: "https://facebook.github.io/react/logo-og.png"
+                    }}
+                    style={{ width: 130, height: 110 }}
+                  />
+                  <View style={styles.info}>
+                    <Text style={styles.title}>关爱父母孝心体检</Text>
+                    <Text style={styles.subtitle}>中老年基础体检筛查</Text>
+                    <View style={styles.price}>
+                      <Text style={styles.price1}>原价 235元</Text>
+                      <Image
+                        source={{
+                          uri: "https://facebook.github.io/react/logo-og.png"
+                        }}
+                        style={{ width: 18, height: 18 }}
+                      />
+                      <Text style={styles.price2}>会员价 0元</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </ScrollView>
