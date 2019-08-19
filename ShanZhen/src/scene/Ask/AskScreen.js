@@ -38,7 +38,7 @@ export default class AskScreen extends Component<Props> {
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <Text style={styles.header}>问诊</Text>
           <Text style={styles.instructions}>
-            善诊精选医生／患者隐私保护／快速回复
+            精选医生／患者隐私保护／快速回复
           </Text>
           <Text style={styles.hint}>有问题？快去找专业医生咨询吧</Text>
           <View style={styles.tips}>

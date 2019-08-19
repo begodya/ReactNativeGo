@@ -25,7 +25,7 @@ const AppTabNavigator = createBottomTabNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        tabBarLabel: "善诊",
+        tabBarLabel: "首页",
         tabBarIcon: ({ tintColor, focused }) => (
           <Image
             source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
